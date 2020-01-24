@@ -1,0 +1,55 @@
+{
+  "id": "no.elko.privat",
+  "version": "1.0.0",
+  "compatibility": ">=1.5.0",
+  "sdk": 2,
+  "name": {
+    "en": "ELKO ESH"
+  },
+  "description": {
+    "en": "Adds support for Elko ESH devices."
+  },
+  "category": [
+    "lights"
+  ],
+  "permissions": [],
+  "images": {
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
+  },
+  "author": {
+    "name": "Niels Petter Rasch-Olsen",
+    "email": "npro.home@gmail.com"
+  },
+  "drivers": [
+    {
+      "id": "esh-316-endevender-rf",
+      "name": {
+        "en": "ESH 316 Endevender RF"
+      },
+      "class": "remote",
+      "capabilities": [
+        "measure_battery",
+        "dim",
+        "onoff"
+      ],
+      "energy" : {
+        "batteries": [
+          "CR2032","CR2032"
+          ]
+        },
+      "zigbee" : {
+        "manufacturerName" : "ELKO",
+        "productId": [
+          "ElkoDimmerRemoteZHA"
+        ],
+        "deviceId": 260,
+        "profileId": 260
+      },
+      "images": {
+        "large": "/drivers/esh-316-endevender-rf/assets/images/large.png",
+        "small": "/drivers/esh-316-endevender-rf/assets/images/small.png"
+      }
+    }
+  ]
+}
