@@ -23,16 +23,12 @@
   },
   "drivers": [
     {
-      "id": "esh-316-endevender-rf",
+      "id": "EDRZHA",
       "name": {
         "en": "ESH 316 Endevender RF"
       },
-      "class": "remote",
-      "capabilities": [
-        "measure_battery",
-        "dim",
-        "onoff"
-      ],
+      "class": "sensor",
+      "capabilities": [],
       "energy" : {
         "batteries": [
           "CR2032","CR2032"
@@ -44,12 +40,66 @@
           "ElkoDimmerRemoteZHA"
         ],
         "deviceId": 260,
-        "profileId": 260
+        "profileId": 260,
+        "learnmode":{
+          "image": "/drivers/EDRZHA/assets/images/pair.png",
+          "instruction" : {
+            "en" : "Hold the setup button (1) for at least 4 seconds until the green led (2) flashes, then release."
+          }
+        }
       },
       "images": {
-        "large": "/drivers/esh-316-endevender-rf/assets/images/large.png",
-        "small": "/drivers/esh-316-endevender-rf/assets/images/small.png"
+        "large": "/drivers/EDRZHA/assets/images/large.png",
+        "small": "/drivers/EDRZHA/assets/images/small.png"
       }
     }
-  ]
+  ],
+  "flow": {
+    "triggers": [
+      {
+        "id": "EDRZHA_toggle",
+        "title": {
+          "en": "Toggle-button pressed"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=EDRZHA"
+          }
+        ]
+      },
+      {
+        "id": "EDRZHA_dim",
+        "title": {
+          "en": "Dim buttons"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=EDRZHA"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "right-turned",
+                "label": {
+                  "en": "Dimmer turned right"
+                }
+              },
+              {
+                "id": "left-turned",
+                "label": {
+                  "en": "Dimmer turned left"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 }
